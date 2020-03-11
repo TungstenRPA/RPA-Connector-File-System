@@ -1,0 +1,186 @@
+{
+	"actions": [
+		{
+			"name": "listdir",
+			"type": "node",
+			"parameters": [
+				{
+					"name": "directory",
+					"type": "string"					
+				}
+			],
+			"response": [
+				{
+					"name": "status",
+					"type": "string"
+				},				
+				{
+					"name": "message",
+					"type": "string"
+				},				
+				{
+					"name": "dirinfo",
+					"type": "string"
+				}
+			],
+			"commandline": [
+				"var dfs = require('desktopfs');",
+				"return dfs.listdir(%1);"
+			]
+		},
+		{
+			"name": "listdir_rec",
+			"type": "node",
+			"parameters": [
+				{
+					"name": "directory",
+					"type": "string"					
+				},
+				{
+					"name": "maxresults",
+					"type": "number",
+					"default": 1000,
+					"min": 1,
+					"max": 10000				
+				}
+			],
+			"response": [
+				{
+					"name": "status",
+					"type": "string"
+				},				
+				{
+					"name": "message",
+					"type": "string"
+				},				
+				{
+					"name": "dirinfo",
+					"type": "string"
+				}
+			],
+			"commandline": [
+				"var dfs = require('desktopfs');",
+				"return dfs.listdir_rec(%1, %2);"
+			]
+		},
+		{
+			"name": "exists",
+			"type": "node",
+			"parameters": [
+				{
+					"name": "path",
+					"type": "string"					
+				}
+			],
+			"response": [
+				{
+					"name": "status",
+					"type": "string"
+				},				
+				{
+					"name": "message",
+					"type": "string"
+				}
+			],
+			"commandline": [
+				"var dfs = require('desktopfs');",
+				"return dfs.exists(%1);"
+			]
+		},
+		{
+			"name": "copyfile",
+			"type": "node",
+			"parameters": [
+				{
+					"name": "source",
+					"type": "string"					
+				},
+				{
+					"name": "destination",
+					"type": "string"					
+				},
+				{
+					"name": "overwrite",
+					"type": "number",
+					"default": 0,
+					"min": 0,
+					"max": 1				
+				}
+			],
+			"response": [
+				{
+					"name": "status",
+					"type": "string"
+				},				
+				{
+					"name": "message",
+					"type": "string"
+				}
+			],
+			"commandline": [
+				"var dfs = require('desktopfs');",
+				"return dfs.copyfile(%1, %2, %3);"
+			]
+		},
+		{
+			"name": "movefile",
+			"type": "node",
+			"parameters": [
+				{
+					"name": "source",
+					"type": "string"					
+				},
+				{
+					"name": "destination",
+					"type": "string"					
+				},
+				{
+					"name": "overwrite",
+					"type": "number",
+					"default": 0,
+					"min": 0,
+					"max": 1				
+				}
+			],
+			"response": [
+				{
+					"name": "status",
+					"type": "string"
+				},				
+				{
+					"name": "message",
+					"type": "string"
+				}
+			],
+			"commandline": [
+				"var dfs = require('desktopfs');",
+				"return dfs.movefile(%1, %2, %3);"
+			]
+		},
+		{
+			"name": "deletefile",
+			"type": "node",
+			"parameters": [
+				{
+					"name": "path",
+					"type": "string"					
+				}
+			],
+			"response": [
+				{
+					"name": "status",
+					"type": "string"
+				},				
+				{
+					"name": "message",
+					"type": "string"
+				}
+			],
+			"commandline": [
+				"var dfs = require('desktopfs');",
+				"return dfs.deletefile(%1);"
+			]
+		}
+	],
+	"name": "desktop_fs"
+}
